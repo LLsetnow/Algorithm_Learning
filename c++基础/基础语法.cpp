@@ -1,3 +1,4 @@
+#pragma region 字符串输入
 // #include <iostream>
 // #include <string>
 // using namespace std;
@@ -12,7 +13,9 @@
     
 //     return 0;
 // }
+#pragma endregion
 
+#pragma region 字面量
 // #include <iostream>
 // using namespace std;
 
@@ -53,8 +56,10 @@
     
 //     return 0;
 // }
+#pragma endregion
 
 
+#pragma region 类型转换
 // #include <iostream>
 // using namespace std;
 
@@ -80,8 +85,10 @@
     
 //     return 0;
 // }
+#pragma endregion
 
 
+#pragma region 短路求值
 // #include <iostream>
 // using namespace std;
 
@@ -106,7 +113,9 @@
     
 //     return 0;
 // }
+#pragma endregion
 
+#pragma region 数组基础
 // 数组基础
 // #include <iostream>
 // #include <cstring>
@@ -137,7 +146,9 @@
 
 //     return 0;
 // }
+#pragma endregion
 
+#pragma region 字符串操作
 // 字符串
 // #include <iostream>
 // #include <cstring>
@@ -173,8 +184,10 @@
     
 //     return 0;
 // }
+#pragma endregion
 
 
+#pragma region 数组排序
 // 数组排序
 // #include <iostream>
 // #include <algorithm>
@@ -203,7 +216,9 @@
     
 //     return 0;
 // }
+#pragma endregion
 
+#pragma region 数组查找
 // // 数组查找
 // #include <iostream>
 // using namespace std;
@@ -234,8 +249,10 @@
     
 //     return 0;
 // }
+#pragma endregion
 
 
+#pragma region 地址
 // 地址
 
 // #include <iostream>
@@ -253,7 +270,9 @@
     
 //     return 0;
 // }
+#pragma endregion
 
+#pragma region 指针
 // 指针
 // #include <iostream>
 // using namespace std;
@@ -272,8 +291,10 @@
 //     cout << "指针ptr的地址:" << ptr << endl;
 //     return 0;
 // }
+#pragma endregion
 
 
+#pragma region 动态内存分配
 // 动态内存分配
 // #include <iostream>
 // using namespace std;
@@ -287,7 +308,9 @@
 //     delete ptr;
 //     return 0;
 // }
+#pragma endregion
 
+#pragma region 动态内存分配数组
 // 动态内存分配数组
 // #include <iostream>
 // using namespace std;
@@ -308,8 +331,10 @@
 //     delete[] ptr;
 //     return 0;
 // }
+#pragma endregion
 
 
+#pragma region 指针算术
 // 指针算术
 // #include <iostream>
 // using namespace std;
@@ -344,7 +369,9 @@
     
 //     return 0;
 // }
+#pragma endregion
 
+#pragma region 引用
 /*
 引用:
     引用相当于一个别名
@@ -367,9 +394,11 @@
 //     cout << "引用ref的值:" << ref << endl;
 //     cout << "引用ref的地址:" << &ref << endl;
 //     return 0;
-// }   
+// }
+#pragma endregion   
 
 
+#pragma region 函数参数传递
 // 函数参数传递
 // 值传递: 传递的是值的副本
 // 指针传递: 传递的是值的地址
@@ -415,8 +444,10 @@
     
 //     return 0;
 // }
+#pragma endregion
 
 
+#pragma region 练习1：指针基础操作
 //练习1：指针基础操作
 
 //编写程序，声明两个整数变量，使用指针交换它们的值。
@@ -436,7 +467,9 @@
 //     cout << "a = " << a << endl;
 //     cout << "b = " << b << endl;
 // }
+#pragma endregion
 
+#pragma region 练习2：数组指针操作
 //练习2：数组指针操作
 
 //编写程序，‌使用指针找出数组中的⁢最大值和最小值。
@@ -457,7 +490,9 @@
 //     cout << "min = " << min << endl;
 //     return 0;
 // }
+#pragma endregion
 
+#pragma region 练习3：引用的应用
 //练习3：引用的应用
 
 // 编写一个函‌数，使用引用参数计算⁢并返回两个数的和⁢与差。         ⁠          ​      
@@ -479,5 +514,6 @@
 //     sum = a + b;
 //     diff = a - b;
 // }
+#pragma endregion
 
 
