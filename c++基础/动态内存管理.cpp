@@ -78,46 +78,46 @@
 #pragma region new delete class构造函数
 
 // 基本用法
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
-int main() {
-    // 分配单个整数
-    int* ptr1 = new int;        // 分配但不初始化
-    int* ptr2 = new int(42);    // 分配并初始化为42
-    int* ptr3 = new int{100};   // C++11统一初始化语法
+// int main() {
+//     // 分配单个整数
+//     int* ptr1 = new int;        // 分配但不初始化
+//     int* ptr2 = new int(42);    // 分配并初始化为42
+//     int* ptr3 = new int{100};   // C++11统一初始化语法
     
-    cout << "ptr1指向的值：" << *ptr1 << endl;  // 未初始化，值不确定
-    cout << "ptr2指向的值：" << *ptr2 << endl;  // 42
-    cout << "ptr3指向的值：" << *ptr3 << endl;  // 100
+//     cout << "ptr1指向的值：" << *ptr1 << endl;  // 未初始化，值不确定
+//     cout << "ptr2指向的值：" << *ptr2 << endl;  // 42
+//     cout << "ptr3指向的值：" << *ptr3 << endl;  // 100
     
-    // 分配数组
-    int size = 5;
-    int* arr = new int[size];
+//     // 分配数组
+//     int size = 5;
+//     int* arr = new int[size];
     
-    // 初始化数组
-    for (int i = 0; i < size; i++) {
-        // 指针解引用方式
-        // *（arr + i） = i * 10;
-        // 数组下标方式
-        // arr[i] = i * 10;
-        arr[i] = i * 10;
-    }
+//     // 初始化数组
+//     for (int i = 0; i < size; i++) {
+//         // 指针解引用方式
+//         // *（arr + i） = i * 10;
+//         // 数组下标方式
+//         // arr[i] = i * 10;
+//         arr[i] = i * 10;
+//     }
     
-    cout << "动态数组内容：";
-    for (int i = 0; i < size; i++) {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
+//     cout << "动态数组内容：";
+//     for (int i = 0; i < size; i++) {
+//         cout << arr[i] << " ";
+//     }
+//     cout << endl;
     
-    // 释放内存
-    delete ptr1;
-    delete ptr2;
-    delete ptr3;
-    delete[] arr;  // 注意数组使用delete[]
+//     // 释放内存
+//     delete ptr1;
+//     delete ptr2;
+//     delete ptr3;
+//     delete[] arr;  // 注意数组使用delete[]
     
-    return 0;
-}
+//     return 0;
+// }
 
 // 动态分配对象
 
@@ -341,70 +341,256 @@ int main() {
 // }
 #pragma endregion
 
-#pragma region 动态内存管理的最佳实践
+#pragma region RAII（资源获取即初始化）
 
-// RAII（资源获取即初始化）
+// #include <iostream>
+// #include <string>
+// using namespace std;
+
+// class SafeArray {
+// private:
+//     int* data;
+//     int size;
+    
+// public:
+//     SafeArray(int s) : size(s) {
+//         data = new int[size];
+//         cout << "SafeArray构造函数：分配了" << size << "个整数的内存" << endl;
+//     }
+    
+//     ~SafeArray() {
+//         delete[] data;
+//         cout << "SafeArray析构函数：释放了内存" << endl;
+//     }
+    
+//     // 禁止拷贝构造和赋值（避免浅拷贝问题）
+//     SafeArray(const SafeArray&) = delete;
+//     SafeArray& operator=(const SafeArray&) = delete;
+    
+//     int& operator[](int index) {
+//         if (index < 0 || index >= size) {
+//             throw out_of_range("索引超出范围");
+//         }
+//         return data[index];
+//     }
+    
+//     int getSize() const { return size; }
+// };
+
+// int main() {
+//     try {
+//         SafeArray arr(5);
+        
+//         // 使用数组
+//         for (int i = 0; i < arr.getSize(); i++) {
+//             arr[i] = i * 10;
+//         }
+        
+//         cout << "数组内容：";
+//         for (int i = 0; i < arr.getSize(); i++) {
+//             cout << arr[i] << " ";
+//         }
+//         cout << endl;
+        
+//         // 即使发生异常，析构函数也会被调用
+//         // arr[10] = 100;  // 这会抛出异常
+        
+//     } catch (const exception& e) {
+//         cout << "异常：" << e.what() << endl;
+//     }
+    
+//     cout << "程序结束，内存自动释放" << endl;
+    
+//     return 0;
+// }
+
+#pragma endregion
+
+#pragma region 智能指针
+
+/*
+    智能指针是封装原始指针的类模板，通过自动化的内存管理机制解决以下问题：
+        内存泄漏 - 确保资源在不再需要时被释放
+        悬挂指针 - 确保指针不会指向已释放的内存区域
+        所有权模糊 - 明确资源生命周期控制权
+*/
+
+// #include <iostream>
+// #include <memory>
+// #include <string>
+// using namespace std;
+
+// class Person {
+// private:
+//     string name;
+//     int age;
+    
+// public:
+//     Person(const string& n, int a) : name(n), age(a) {
+//         cout << "Person构造函数：" << name << endl;
+//     }
+    
+//     ~Person() {
+//         cout << "Person析构函数：" << name << endl;
+//     }
+    
+//     void introduce() const {
+//         cout << "我是" << name << "，" << age << "岁" << endl;
+//     }
+// };
+
+// int main() {
+//     cout << "=== 使用unique_ptr ===" << endl;
+//     {
+//         // unique_ptr自动管理内存
+//         unique_ptr<Person> person1 = make_unique<Person>("张三", 25);
+//         person1->introduce();
+        
+//         // unique_ptr不能复制，只能移动
+//         unique_ptr<Person> person2 = move(person1);
+//         if (person1 == nullptr) {
+//             cout << "person1现在是空指针" << endl;
+//         }
+        
+//         person2->introduce();
+//     }  // 作用域结束，unique_ptr自动释放内存
+    
+//     cout << "\n=== 使用shared_ptr ===" << endl;
+//     {
+//         // shared_ptr可以被多个指针共享
+//         shared_ptr<Person> person1 = make_shared<Person>("李四", 30);
+//         cout << "引用计数：" << person1.use_count() << endl;
+        
+//         {
+//             shared_ptr<Person> person2 = person1;  // 引用计数增加
+//             cout << "引用计数：" << person1.use_count() << endl;
+            
+//             person2->introduce();
+//         }  // person2离开作用域，引用计数减少
+        
+//         cout << "引用计数：" << person1.use_count() << endl;
+//     }  // 最后一个shared_ptr离开作用域，自动释放内存
+    
+//     cout << "\n=== 使用weak_ptr ===" << endl;
+//     {
+//         shared_ptr<Person> person1 = make_shared<Person>("王五", 35);
+//         weak_ptr<Person> weak_person = person1;
+        
+//         cout << "shared_ptr引用计数：" << person1.use_count() << endl;
+        
+//         if (auto temp = weak_person.lock()) {
+//             temp->introduce();
+//         }
+        
+//         person1.reset();  // 释放shared_ptr
+        
+//         if (weak_person.expired()) {
+//             cout << "weak_ptr指向的对象已经被释放" << endl;
+//         }
+//     }
+    
+//     return 0;
+// }
+
+
+#pragma endregion
+
+#pragma region 内存管理实践项目
+// 动态字符串类
+
 #include <iostream>
-#include <string>
+#include <cstring>
 using namespace std;
 
-class SafeArray {
+class DynamicString {
 private:
-    int* data;
-    int size;
+    char* data;
+    int length;
     
 public:
-    SafeArray(int s) : size(s) {
-        data = new int[size];
-        cout << "SafeArray构造函数：分配了" << size << "个整数的内存" << endl;
+    // 构造函数
+    DynamicString(const char* str = "") {
+        length = strlen(str);
+        data = new char[length + 1];
+        strcpy(data, str);
+        cout << "构造了字符串：\"" << data << "\"" << endl;
     }
     
-    ~SafeArray() {
-        delete[] data;
-        cout << "SafeArray析构函数：释放了内存" << endl;
+    // 拷贝构造函数
+    DynamicString(const DynamicString& other) {
+        length = other.length;
+        data = new char[length + 1];
+        strcpy(data, other.data);
+        cout << "拷贝构造了字符串：\"" << data << "\"" << endl;
     }
     
-    // 禁止拷贝构造和赋值（避免浅拷贝问题）
-    SafeArray(const SafeArray&) = delete;
-    SafeArray& operator=(const SafeArray&) = delete;
-    
-    int& operator[](int index) {
-        if (index < 0 || index >= size) {
-            throw out_of_range("索引超出范围");
+    // 赋值操作符
+    DynamicString& operator=(const DynamicString& other) {
+        if (this != &other) {
+            delete[] data;  // 释放旧内存
+            
+            length = other.length;
+            data = new char[length + 1];
+            strcpy(data, other.data);
         }
-        return data[index];
+        return *this;
     }
     
-    int getSize() const { return size; }
+    // 析构函数
+    ~DynamicString() {
+        cout << "析构了字符串：\"" << data << "\"" << endl;
+        delete[] data;
+    }
+    
+    // 获取字符串内容
+    const char* c_str() const { return data; }
+    
+    // 获取长度
+    int size() const { return length; }
+    
+    // 连接操作
+    DynamicString operator+(const DynamicString& other) const {
+        int newLength = length + other.length;
+        char* newData = new char[newLength + 1];
+        
+        strcpy(newData, data);
+        strcat(newData, other.data);
+        
+        DynamicString result;
+        delete[] result.data;
+        result.data = newData;
+        result.length = newLength;
+        
+        return result;
+    }
+    
+    // 输出操作符
+    friend ostream& operator<<(ostream& os, const DynamicString& str) {
+        os << str.data;
+        return os;
+    }
 };
 
 int main() {
-    try {
-        SafeArray arr(5);
-        
-        // 使用数组
-        for (int i = 0; i < arr.getSize(); i++) {
-            arr[i] = i * 10;
-        }
-        
-        cout << "数组内容：";
-        for (int i = 0; i < arr.getSize(); i++) {
-            cout << arr[i] << " ";
-        }
-        cout << endl;
-        
-        // 即使发生异常，析构函数也会被调用
-        // arr[10] = 100;  // 这会抛出异常
-        
-    } catch (const exception& e) {
-        cout << "异常：" << e.what() << endl;
-    }
+    cout << "=== 动态字符串测试 ===" << endl;
     
-    cout << "程序结束，内存自动释放" << endl;
+    DynamicString str1("Hello");
+    DynamicString str2(" World");
+    
+    cout << "str1: " << str1 << endl;
+    cout << "str2: " << str2 << endl;
+    
+    DynamicString str3 = str1 + str2;
+    cout << "str3: " << str3 << endl;
+    
+    DynamicString str4 = str1;  // 拷贝构造
+    cout << "str4: " << str4 << endl;
+    
+    str4 = str3;  // 赋值操作
+    cout << "str4 after assignment: " << str4 << endl;
     
     return 0;
 }
-
 
 
 #pragma endregion
