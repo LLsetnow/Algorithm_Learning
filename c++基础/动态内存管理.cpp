@@ -78,46 +78,46 @@
 #pragma region new delete class构造函数
 
 // 基本用法
-// #include <iostream>
-// using namespace std;
+#include <iostream>
+using namespace std;
 
-// int main() {
-//     // 分配单个整数
-//     int* ptr1 = new int;        // 分配但不初始化
-//     int* ptr2 = new int(42);    // 分配并初始化为42
-//     int* ptr3 = new int{100};   // C++11统一初始化语法
+int main() {
+    // 分配单个整数
+    int* ptr1 = new int;        // 分配但不初始化
+    int* ptr2 = new int(42);    // 分配并初始化为42
+    int* ptr3 = new int{100};   // C++11统一初始化语法
     
-//     cout << "ptr1指向的值：" << *ptr1 << endl;  // 未初始化，值不确定
-//     cout << "ptr2指向的值：" << *ptr2 << endl;  // 42
-//     cout << "ptr3指向的值：" << *ptr3 << endl;  // 100
+    cout << "ptr1指向的值：" << *ptr1 << endl;  // 未初始化，值不确定
+    cout << "ptr2指向的值：" << *ptr2 << endl;  // 42
+    cout << "ptr3指向的值：" << *ptr3 << endl;  // 100
     
-//     // 分配数组
-//     int size = 5;
-//     int* arr = new int[size];
+    // 分配数组
+    int size = 5;
+    int* arr = new int[size];
     
-//     // 初始化数组
-//     for (int i = 0; i < size; i++) {
-//         // 指针解引用方式
-//         // *（arr + i） = i * 10;
-//         // 数组下标方式
-//         // arr[i] = i * 10;
-//         arr[i] = i * 10;
-//     }
+    // 初始化数组
+    for (int i = 0; i < size; i++) {
+        // 指针解引用方式
+        // *（arr + i） = i * 10;
+        // 数组下标方式
+        // arr[i] = i * 10;
+        arr[i] = i * 10;
+    }
     
-//     cout << "动态数组内容：";
-//     for (int i = 0; i < size; i++) {
-//         cout << arr[i] << " ";
-//     }
-//     cout << endl;
+    cout << "动态数组内容：";
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
     
-//     // 释放内存
-//     delete ptr1;
-//     delete ptr2;
-//     delete ptr3;
-//     delete[] arr;  // 注意数组使用delete[]
+    // 释放内存
+    delete ptr1;
+    delete ptr2;
+    delete ptr3;
+    delete[] arr;  // 注意数组使用delete[]
     
-//     return 0;
-// }
+    return 0;
+}
 
 // 动态分配对象
 
