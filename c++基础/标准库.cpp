@@ -90,17 +90,9 @@
 
 //     // 初始化向量
 //     vector<int> v = {1, 2, 3, 4, 5};
-//     cout << "v = ";
-
-//     // 遍历向量
-//     for (int x : v) {
-//         cout << x << " ";
-//     }
-//     cout << endl;
-
-//     // 批量初始化
 //     vector<int> v1(10);         // 10个0
 //     vector<int> v2(10, 5);      // 10个5
+//     cout << "v = ";
 //     cout << "v1 = ";
 //     for (int x : v1) {
 //         cout << x << " ";
@@ -111,6 +103,14 @@
 //         cout << x << " ";
 //     }
 //     cout << endl;
+
+//     // 遍历向量
+//     for (int x : v) {
+//         cout << x << " ";
+//     }
+//     cout << endl;
+
+
 
 //     // 向量大小
 //     int size = v.size();
@@ -149,12 +149,17 @@
 
 //     vector<int> v3 = {1, 2, 3, 4, 5};
 
-//     // 迭代访问
-//     cout << "v3 = ";
-//     for (auto it = v3.begin(); it != v3.end(); it++) {
-//         // it 是一个指针，指向当前元素的地址
-//         cout << *it << " ";
-//     }
+    // // 迭代访问
+    // cout << "v3 = ";
+    // for (auto it = v3.begin(); it != v3.end(); it++) {
+    //     // it 是一个指针，指向当前元素的地址
+    //     cout << *it << " ";
+    // }
+    // // 使用范围for循环
+    // cout << "v3 = ";
+    // for(auto& x : v3){
+    //     cout << x << " ";
+    // }
 //     cout << endl;
 // }
 
@@ -162,41 +167,96 @@
 #pragma endregion
 
 #pragma region <stack>
-#include <iostream>
-#include <stack>
-using namespace std;
+/*
+    std::stack<int> s;
+    push(): 在栈顶添加一个元素。
+    pop(): 移除栈顶元素。
+    top(): 返回栈顶元素的引用，但不移除它。
+    empty(): 检查栈是否为空。
+    size(): 返回栈中元素的数量。
 
-int main(){
+*/
+// #include <iostream>
+// #include <stack>
+// using namespace std;
+
+// int main(){
+//     system("clear");
+//     system("chcp 65001>nul");
+    
+//     // 初始化栈
+//     stack<int> s;
+
+//     // 向栈中添加元素
+//     s.push(1);
+//     s.push(2);
+//     s.push(3);
+
+//     // 访问栈顶元素
+//     std::cout << "Top element is: " << s.top() << std::endl;
+
+//     // 移除栈顶元素
+//     s.pop();
+//     std::cout << "After popping, top element is: " << s.top() << std::endl;
+
+//     // 检查栈是否为空
+//     if (!s.empty()) {
+//         std::cout << "Stack is not empty." << std::endl;
+//     }
+
+//     // 打印栈的大小
+//     std::cout << "Size of stack: " << s.size() << std::endl;
+
+//     return 0;
+// }
+
+#pragma endregion
+
+#pragma region <queue>
+/*
+    #include <queue>
+    std::queue<Type> q;
+    empty(): 检查队列是否为空。
+    size(): 返回队列中的元素数量。
+    front(): 返回队首元素的引用。
+    back(): 返回队尾元素的引用。
+    push(): 在队尾添加一个元素。
+    pop(): 移除队首元素。
+*/
+#include <iostream>
+#include <queue>
+
+int main() {
     system("clear");
     system("chcp 65001>nul");
-    
-    // 初始化栈
-    stack<int> s;
 
-    // 向栈中添加元素
-    s.push(1);
-    s.push(2);
-    s.push(3);
+    // 创建一个整数队列
+    std::queue<int> q;
 
-    // 访问栈顶元素
-    std::cout << "Top element is: " << s.top() << std::endl;
+    // 向队列中添加元素
+    q.push(10);
+    q.push(20);
+    q.push(30);
 
-    // 移除栈顶元素
-    s.pop();
-    std::cout << "After popping, top element is: " << s.top() << std::endl;
+    // 打印队列中的元素数量
+    std::cout << "队列中的元素数量: " << q.size() << std::endl;
 
-    // 检查栈是否为空
-    if (!s.empty()) {
-        std::cout << "Stack is not empty." << std::endl;
-    }
+    // 打印队首元素
+    std::cout << "队首元素: " << q.front() << std::endl;
 
-    // 打印栈的大小
-    std::cout << "Size of stack: " << s.size() << std::endl;
+    // 打印队尾元素
+    std::cout << "队尾元素: " << q.back() << std::endl;
+
+    // 移除队首元素
+    q.pop();
+    std::cout << "移除队首元素后，队首元素: " << q.front() << std::endl;
+
+    // 再次打印队列中的元素数量
+    std::cout << "队列中的元素数量: " << q.size() << std::endl;
 
     return 0;
 }
 
-#pragma endregion
 
 
 #pragma region  <unordered_set>
