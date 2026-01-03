@@ -1,81 +1,85 @@
 
 #pragma region <string>
-// #include <iostream>
-// #include <string>
-// using namespace std;
+#include <iostream>
+#include <string>
+using namespace std;
 
-// int main(){
-//     system("clear");
-//     system("chcp 65001>nul");
+int main(){
+    system("clear");
+    system("chcp 65001>nul");
     
-//     // 初始化字符串
-//     string str = "Hello World";
-//     cout << "str = " << str << endl;
+    // 初始化字符串
+    string str = "Hello World";
+    cout << "str = " << str << endl;
 
-//     //字符串大小
-//     int len = str.length();
-//     cout << "len = " << len << endl;
-//     len = str.size();
-//     cout << "len = " << len << endl;
+    //字符串大小
+    int len = str.length();
+    cout << "len = " << len << endl;
+    len = str.size();
+    cout << "len = " << len << endl;
 
-//     // 连接字符串
-//     string str2 = str + "!";
-//     cout << "str2 = " << str2 << endl;
+    // 连接字符串
+    string str2 = str + "!";
+    cout << "str2 = " << str2 << endl;
 
-//     // 整形转换为字符串
-//     int num = 123;
-//     string str3 = to_string(num);
-//     cout << "str3 = " << str3 << endl;
+    // 整形转换为字符串
+    int num = 123;
+    string str3 = to_string(num);
+    cout << "str3 = " << str3 << endl;
 
-//     // 访问字符串中的字符
-//     cout << "str[0] = " << str[0] << endl;
-//     cout << "str[str.length()-1] = " << str[str.length()-1] << endl;
+    // 访问字符串中的字符
+    cout << "str[0] = " << str[0] << endl;
+    cout << "str[str.length()-1] = " << str[str.length()-1] << endl;
 
-//     // 判断字符串是否为空
-//     if (str.empty()) {
-//         cout << "str is empty" << endl;
-//     } else {
-//         cout << "str is not empty" << endl;
-//     }
+    // 判断字符串是否为空
+    if (str.empty()) {
+        cout << "str is empty" << endl;
+    } else {
+        cout << "str is not empty" << endl;
+    }
 
-//     // 返回从指定位置开始的子字符串。
-//     string sub = str.substr(0, 5);
-//     cout << "sub = " << sub << endl;
+    // 返回从指定位置开始的子字符串。
+    string sub = str.substr(0, 5);
+    cout << "sub = " << sub << endl;
 
-//     // 查找字符串中的字符,返回字符串中第一个匹配字符的位置，如果没有找到，则返回 string::npos
-//     size_t pos = str.find("World");
-//     if (pos != string::npos) {
-//         cout << "Found at position " << pos << endl;
-//     } else {
-//         cout << "Not found" << endl;
-//     }
+    // 查找字符串中的字符,返回字符串中第一个匹配字符的位置，如果没有找到，则返回 string::npos
+    size_t pos = str.find("World");
+    if (pos != string::npos) {
+        cout << "Found at position " << pos << endl;
+    } else {
+        cout << "Not found" << endl;
+    }
 
-//     // 在字符串末尾添加内容。
-//     str.append("!");
-//     cout << "str = " << str << endl;
+    // 在字符串末尾添加内容。
+    str.append("!");
+    cout << "str = " << str << endl;
 
-//     // 在指定位置插入内容。
-//     str.insert(0, "Hello ");
-//     cout << "str = " << str << endl;
+    // 在指定位置插入内容。
+    str.insert(0, "Hello ");
+    cout << "str = " << str << endl;
+
+    // 复制局部字符串
+    string str4 = str.substr(0, 5);
+    cout << "str4 = " << str4 << endl;
+    
+    // 清空字符串。
+    // 清空字符串。
+    str.clear();
+    cout << "str = " << str << endl;
 
     
-//     // 清空字符串。
-//     str.clear();
-//     cout << "str = " << str << endl;
-
-    
-//     // 比较两个字符串。
-//     string str4 = "Hello";
-//     string str5 = "World";
-//     int res = str4.compare(str5);
-//     if (res == 0) {
-//         cout << "str4 == str5" << endl;
-//     } else if (res < 0) {
-//         cout << "str4 < str5" << endl;
-//     } else {
-//         cout << "str4 > str5" << endl;
-//     }
-// }
+    // 比较两个字符串。
+    string str4 = "Hello";
+    string str5 = "World";
+    int res = str4.compare(str5);
+    if (res == 0) {
+        cout << "str4 == str5" << endl;
+    } else if (res < 0) {
+        cout << "str4 < str5" << endl;
+    } else {
+        cout << "str4 > str5" << endl;
+    }
+}
 
 #pragma endregion
 
@@ -223,41 +227,42 @@
     push(): 在队尾添加一个元素。
     pop(): 移除队首元素。
 */
-#include <iostream>
-#include <queue>
 
-int main() {
-    system("clear");
-    system("chcp 65001>nul");
+// #include <iostream>
+// #include <queue>
 
-    // 创建一个整数队列
-    std::queue<int> q;
+// int main() {
+//     system("clear");
+//     system("chcp 65001>nul");
 
-    // 向队列中添加元素
-    q.push(10);
-    q.push(20);
-    q.push(30);
+//     // 创建一个整数队列
+//     std::queue<int> q;
 
-    // 打印队列中的元素数量
-    std::cout << "队列中的元素数量: " << q.size() << std::endl;
+//     // 向队列中添加元素
+//     q.push(10);
+//     q.push(20);
+//     q.push(30);
 
-    // 打印队首元素
-    std::cout << "队首元素: " << q.front() << std::endl;
+//     // 打印队列中的元素数量
+//     std::cout << "队列中的元素数量: " << q.size() << std::endl;
 
-    // 打印队尾元素
-    std::cout << "队尾元素: " << q.back() << std::endl;
+//     // 打印队首元素
+//     std::cout << "队首元素: " << q.front() << std::endl;
 
-    // 移除队首元素
-    q.pop();
-    std::cout << "移除队首元素后，队首元素: " << q.front() << std::endl;
+//     // 打印队尾元素
+//     std::cout << "队尾元素: " << q.back() << std::endl;
 
-    // 再次打印队列中的元素数量
-    std::cout << "队列中的元素数量: " << q.size() << std::endl;
+//     // 移除队首元素
+//     q.pop();
+//     std::cout << "移除队首元素后，队首元素: " << q.front() << std::endl;
 
-    return 0;
-}
+//     // 再次打印队列中的元素数量
+//     std::cout << "队列中的元素数量: " << q.size() << std::endl;
 
+//     return 0;
+// }
 
+#pragma endregion
 
 #pragma region  <unordered_set>
 // unordered_set 不保证元素的排序，但通常提供更快的查找、插入和删除操作
@@ -337,6 +342,7 @@ int main() {
 // #include <iostream>
 // #include <unordered_map>
 // #include <string>
+// #include <vector>
 // using namespace std;
 
 // int main() {
@@ -358,5 +364,125 @@ int main() {
 //     char c = 'l';
 //     cout << "m2['" << c << "'] = " << m2[c] << endl;
 
+//     // 遍历
+//     for (const auto& pair : m2) {
+//         // pair.first 是键，pair.second 是值
+//         cout << pair.first << ": " << pair.second << endl;
+//     }
+
+//     // 键值 对应多个值
+//     unordered_map<int, vector<int>> m3;
+
+//     //m3[1] 即为vector<int> 对象
+//     m3[1].push_back(10);
+//     m3[1].push_back(20);
+//     m3[1].push_back(30);
+//     cout << "m3[1][0] = " << m3[1][0] << endl;
+//     cout << "m3[1][1] = " << m3[1][1] << endl;
+//     cout << "m3[1][2] = " << m3[1][2] << endl;
+
 // }
 #pragma endregion
+
+#pragma region <algorithm>
+
+
+// #include <iostream>
+// #include <vector>
+// #include <algorithm>
+// #include <string>
+// #include <time.h>
+// using namespace std;
+// void printVector(vector<int> &v){
+//     for (int i = 0; i < (int)v.size(); i++) {
+//         cout << v[i] << " ";
+//     }
+//     cout << endl;
+// }
+
+// int main(){
+//     system("clear");
+//     system("chcp 65001>nul");
+
+//     //排序算法
+//     vector<int> v = {1, 3, 5, 7, 9, 2, 4, 6, 8, 0};
+//     sort(v.begin(), v.end());
+//     printVector(v);
+
+//     string str = "bdefozeaca";
+//     // 字母升序排序
+//     sort(str.begin(), str.end());
+//     cout << str << endl;
+
+//     // 搜索算法
+//     string str2 = "Hello World";
+//     // 在容器中查找与给定值匹配的第一个元素。 
+//     // 如果找到，it 将指向匹配的元素；
+//     // 如果没有找到，it 将等于 container.end()。
+//     auto it = find(str2.begin(), str2.end(), 'l');
+//     if (it != str2.end()) {
+//         cout << "找到字符 'l' 的位置: " << it - str2.begin() << endl;
+//     } else {
+//         cout << "未找到字符 'l'" << endl;
+//     }
+
+//     // 二分查找 要求容器必须是升序排列
+//     sort(str2.begin(), str2.end());
+//     auto it2 = binary_search(str2.begin(), str2.end(), 'l');
+//     if (it2) {
+//         cout << "找到字符 'l'的位置" << it - str2.begin() << endl;
+//     } else {
+//         cout << "未找到字符 'l'" << endl;
+//     }
+
+//     // 复制算法
+//     vector<int> v2 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+//     vector<int> v3(10);
+//     copy(v2.begin(), v2.end(), v3.begin());
+//     printVector(v3);
+
+//     // 反转算法
+//     // 将容器中的元素反转
+//     reverse(v3.begin(), v3.end());
+//     printVector(v3);
+
+//     // 替换算法
+//     // 将容器中所有等于 old_value 的元素替换为 new_value
+//     replace(v3.begin(), v3.end(), 5, 100);
+//     printVector(v3);
+
+//     // 赋值算法
+//     fill(v3.begin(), v3.end(), 0);
+//     printVector(v3);
+
+//     // 比较算法
+//     vector<int> v4 = {1, 2, 3, 4, 5};
+//     vector<int> v5 = {1, 2, 3, 4, 5};
+//     // 检查两个容器是否相等
+//     bool isEqual = equal(v4.begin(), v4.end(), v5.begin());
+//     cout << "两个向量是否相等: " << (isEqual ? "是" : "否") << endl;
+
+//     // 交换算法
+//     swap(v4, v5);
+//     printVector(v4);
+//     printVector(v5);
+
+//     // 归并
+//     vector<int> v6 = {1, 3, 5, 7, 9};
+//     vector<int> v7 = {2, 4, 6, 8, 10};
+//     vector<int> v8(10);
+//     merge(v6.begin(), v6.end(), v7.begin(), v7.end(), v8.begin());
+//     printVector(v8);
+
+//     // 随机数
+//     srand(time(0));
+//     for (int i = 0; i < 10; i++) {
+//         cout << rand() % 100 << " ";
+//     }
+//     cout << endl;
+
+// }
+
+
+#pragma endregion
+
