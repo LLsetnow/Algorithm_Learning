@@ -24,7 +24,7 @@
 
 */
 
-#include <../headfile/stdc++.h>
+#include <D:\github\Algorithm_Learning\LeetCode\headfile\stdc++.h>
 using namespace std;
 
 int main(){
@@ -34,10 +34,10 @@ int main(){
         int a2, a3, a4, b4, b6;
         cin >> a2 >> a3 >> a4 >> b4 >> b6;
         /*
-            人数组合方式
-            第一个数：2人寝个数
-            第二个数：3人寝个数
-            第三个数：4人寝个数
+            桌子人数组合方式
+            第一个数：容纳2人寝个数
+            第二个数：容纳3人寝个数
+            第三个数：容纳4人寝个数
             第四个数：该桌子容纳总人数
 
         */
@@ -55,12 +55,20 @@ int main(){
 
         vector<int> tables(b6, 6);
         tables.insert(tables.end(), b4, 4);
+        int ans = 0;
         // 安排每张桌子的 人数组合
         for(auto &t : tables){
             for(auto &[c2, c3, c4, sum] : patterns){
-                
+                if(a2 >= c2 && a3 >= c3 && a4 >= c4 && t >= sum){
+                    // 安排这组人到当前桌子
+                    a2 -= c2;
+                    a3 -= c3;
+                    a4 -= c4;
+                    ans += sum;
+                    break;
+                }
             }
         }
-
+        cout << ans << endl;
     }
 }
