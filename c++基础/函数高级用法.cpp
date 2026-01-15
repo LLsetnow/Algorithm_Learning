@@ -356,48 +356,52 @@
 //         -> 返回类型（可省略）
 //         {return x + y;} 表示函数体
 // */
-// #include <iostream>
-// #include <algorithm>
-// #include <vector>
-// using namespace std;
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <functional>
+using namespace std;
 
-// int main() {
-//     system("chcp 65001>nul");
-//     // 基本Lambda表达式
-//     auto add = [](int a, int b) -> int {
-//         return a + b;
-//     };
+int main() {
+    system("chcp 65001>nul");
+    // 基本Lambda表达式
+    auto add = [](int a, int b) -> int {
+        return a + b;
+    };
     
-//     cout << "5 + 3 = " << add(5, 3) << endl;
+    cout << "5 + 3 = " << add(5, 3) << endl;
     
-//     // 捕获外部变量
-//     int multiplier = 10;
-//     auto multiply = [multiplier](int x) -> int {
-//         return x * multiplier;
-//     };
+    // 捕获外部变量
+    int multiplier = 10;
+    auto multiply = [multiplier](int x) -> int {
+        return x * multiplier;
+    };
     
-//     cout << "7 * 10 = " << multiply(7) << endl;
+    cout << "7 * 10 = " << multiply(7) << endl;
     
-//     // 在算法中使用Lambda
-//     vector<int> numbers = {1, 2, 3, 4, 5};
+    // 在算法中使用Lambda
+    vector<int> numbers = {1, 2, 3, 4, 5};
     
-//     // 使用Lambda进行变换
-//     transform(numbers.begin(), numbers.end(), numbers.begin(),
-//               [](int x) { return x * x; });
+    // 使用Lambda进行变换
+    transform(numbers.begin(), numbers.end(), numbers.begin(),
+              [](int x) { return x * x; });
 
-//     // 等价于
-//     // for (int i = 0; i < numbers.size(); i++) {
-//     //     numbers[i] = numbers[i] * numbers[i];
-//     // }
+    // 等价于
+    // for (int i = 0; i < numbers.size(); i++) {
+    //     numbers[i] = numbers[i] * numbers[i];
+    // }
     
-//     cout << "平方后的数组：";
-//     for (int num : numbers) {
-//         cout << num << " ";
-//     }
-//     cout << endl;
-    
-//     return 0;
-// }
+    cout << "平方后的数组：";
+    for (int num : numbers) {
+        cout << num << " ";
+    }
+    cout << endl;
+    // int(int, int): 函数返回类型(参数列表)
+    function<int(int, int)> f = [](int x, int y){return x + y;};
+    cout << "函数对象调用: " << f(5, 3) << endl;
+
+    return 0;
+}
 
 #pragma endregion
 
