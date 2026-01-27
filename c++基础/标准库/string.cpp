@@ -1,4 +1,4 @@
-#include <D:\github\Algorithm_Learning\LeetCode\headfile\stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main(){
@@ -66,7 +66,7 @@ int main(){
 
     
     // 比较两个字符串。
-    string str4 = "Hello";
+     str4 = "Hello";
     string str5 = "World";
     int res = str4.compare(str5);
     if (res == 0) {
@@ -76,4 +76,30 @@ int main(){
     } else {
         cout << "str4 > str5" << endl;
     }
+
+    // #include <sstream>
+    string s = "IN AX,3";
+
+    // 按空格分割字符串
+    stringstream ss1(s);
+    string word;
+    while(ss1 >> word){
+        cout << word << endl;  // 输出: IN, AX,3
+    }   
+    cout << endl;
+
+    s = "123 45.6 hello";
+    stringstream ss2(s);
+    int a;
+    double b;
+    string c;
+    ss2 >> a >> b >> c;  // a=123, b=45.6, c="hello"
+
+    // 向 stringstream 写入（格式化）
+    stringstream ss3;
+    int age = 25;
+    string name = "Tom";
+    ss3 << "Name: " << name << ", Age: " << age;
+    cout << ss3.str();  // 输出: Name: Tom, Age: 25
+
 }

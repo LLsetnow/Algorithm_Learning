@@ -16,6 +16,18 @@ int main(){
     vector<int> v = {1, 3, 5, 7, 9, 2, 4, 6, 8, 0};
     sort(v.begin(), v.end());
     printVector(v);
+    /*
+    // 形式1：默认升序排序
+    void sort(RandomAccessIterator first, RandomAccessIterator last);
+
+    // 形式2：自定义比较函数
+    void sort(RandomAccessIterator first, RandomAccessIterator last, Compare comp);
+    
+    first: 起始迭代器（包含）
+    last: 结束迭代器（不包含）
+    comp: 比较函数/lambda，返回 true 表示第一个参数应该排在前面
+
+    */
 
     string str = "bdefozeaca";
     // 字母升序排序
