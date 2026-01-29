@@ -34,6 +34,8 @@ int main(){
     } else {
         cout << "str is not empty" << endl;
     }
+    // 字符串插入
+    string s5 = "hello";
 
     // 返回从指定位置开始的子字符串。
     string sub = str.substr(0, 5);
