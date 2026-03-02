@@ -1,4 +1,4 @@
-#include <D:\github\Algorithm_Learning\LeetCode\headfile\stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 void printVector(vector<int> &v){
@@ -11,6 +11,11 @@ void printVector(vector<int> &v){
 int main(){
     system("clear");
     system("chcp 65001>nul");
+
+    //min(), max()
+    int a = 10, b = 20;
+    cout << "min(a, b): " << min(a, b) << endl;
+    cout << "max(a, b): " << max(a, b) << endl;
 
     //排序算法
     vector<int> v = {1, 3, 5, 7, 9, 2, 4, 6, 8, 0};

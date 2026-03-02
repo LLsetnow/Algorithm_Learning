@@ -3,6 +3,10 @@
  * @lcpr version=30400
  *
  * [322] 零钱兑换
+ * `k` 种面值的硬币，面值分别为 `c1, c2 ... ck`，
+ * 每种硬币的数量无限，再给一个总金额 `amount`，
+ * 问你**最少**需要几枚硬币凑出这个金额，如果不可能凑出，
+ * 算法返回 -1
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -30,13 +34,17 @@ public:
         return dp[amount] == INT_MAX ? -1 : dp[amount];
     }
 
-    // 递归逆向思路
+    // 自顶向下解法
     int coinChange(vector<int>& coins, int amount) {
-        // dfs(i) 表示 凑出i块钱，至少要dfs(i)个硬币
+        // memo[i] 表示凑出i块钱最少需要memo[i]个硬币
+        vector<int> memo(amount + 1, -1);
+        // dfs(i) 表示凑出i块钱，至少要dfs(i)个硬币
         function<int(int)> dfs = [&](int target){
             // 临界条件
             if(target == 0) return 0;
             if(target < 0) return INT_MAX;
+            // 记忆化：已经计算过直接返回
+            if(memo[target] != -1) return memo[target];
 
             int res = INT_MAX;
             for(int coin : coins){
@@ -46,7 +54,7 @@ public:
                     res = min(res, subProblem + 1);
                 }
             }
-            return res;
+            return memo[target] = res;
         };
         int result = dfs(amount);
         return result == INT_MAX ? -1 : result;
