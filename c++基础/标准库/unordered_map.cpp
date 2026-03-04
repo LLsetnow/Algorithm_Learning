@@ -35,12 +35,35 @@ int main() {
     // 键值 对应多个值
     unordered_map<int, vector<int>> m3;
 
-    //m3[1] 即为vector<int> 对象
-    m3[1].push_back(10);
-    m3[1].push_back(20);
-    m3[1].push_back(30);
-    cout << "m3[1][0] = " << m3[1][0] << endl;
-    cout << "m3[1][1] = " << m3[1][1] << endl;
-    cout << "m3[1][2] = " << m3[1][2] << endl;
+        //m3[1] 即为vector<int> 对象
+        m3[1].push_back(10);
+        m3[1].push_back(20);
+        m3[1].push_back(30);
+        cout << "m3[1][0] = " << m3[1][0] << endl;
+        cout << "m3[1][1] = " << m3[1][1] << endl;
+        cout << "m3[1][2] = " << m3[1][2] << endl;
+
+
+    // 查找
+    unordered_map<int, string> m4 = {{1, "apple"}, {2, "banana"}};
+    int key = 1;
+
+        // 方法1: count() - 推荐（最简洁）
+        if (m4.count(key)) {
+            cout << "键 " << key << " 存在" << endl;
+        }
+        
+        // 方法2: find() - 推荐（还可以获取迭代器）
+        auto it = m4.find(key);
+        if (it != m4.end()) {
+            cout << "键 " << key << " 存在，值为: " << it->second << endl;
+        }
+        
+        // 方法3: at() - 存在时返回值，不存在抛异常
+        try {
+            cout << "值为: " << m4.at(key) << endl;
+        } catch (const out_of_range& e) {
+            cout << "键不存在" << endl;
+        }
 
 }

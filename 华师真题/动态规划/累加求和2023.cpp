@@ -10,7 +10,7 @@ int main(){
     for(auto &[a, b] : val){
         cin >> a >> b;
     }
-    // c++14
+    // c++ 14
     for(auto &x : val){
         cin >> x.first >> x.second;
     }
