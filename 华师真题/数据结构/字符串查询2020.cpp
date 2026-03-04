@@ -1,29 +1,46 @@
-/*
-给你单词S和Q个询问。每次询问，你会得到正整数A,B,C和D。我们令单词X由S的第A到B个字母组成，单词Y由S的第C到D个字母组成。你需要回答，是否能够重新排列单词Y中的字母，得到单词X。
-输入输出格式
-输入描述:
-第一行一个单词S(1<=|S|<=50000)，仅由小写字母组成。
-第二行一个正整数Q(Q<=Q<=50000).
-接下来Q行，每行四个整数A,B,C,D（1<=A<=B<=|S|，1<=C<=D<=|S|）
-输出描述:
-每次询问，如果能，输出“DA”，否则输出“NE”。
-输入输出样例
-输入样例#:
-
-kileanimal
-2
-2 2 7 7
-1 4 6 7
-
-输出样例#:
-复制
-
-DA
-NE
-
-
-*/
 
 #include <bits/stdc++.h>
 using namespace std;
 
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    string s;
+    cin >> s;
+    int vec[50001][26] = {0};
+
+    for(int i = 0; i < s.size(); i++){
+        for(int j = 0; j < 26; j++){
+            vec[i + 1][j] = vec[i][j];
+        }
+        vec[i + 1][s[i] - 'a']++;
+    }
+
+    int n;
+    cin >> n;
+    while(n--){
+        int a, b, c, d;
+        cin >> a >> b >> c >> d;
+        if(b - a != d - c){
+            printf("NE\n");
+            continue;
+        }
+        bool flag = true;
+        for(int i = 0; i < 26; ++i){
+            int cnt1 = vec[b][i] - vec[a - 1][i];
+            int cnt2 = vec[d][i] - vec[c - 1][i];
+
+            if(cnt1 != cnt2){
+                flag = false;
+                break;
+            }
+        }
+        if(flag)
+            printf("DA\n");
+        else    
+            printf("NE\n");
+
+    }
+    return 0;
+}
