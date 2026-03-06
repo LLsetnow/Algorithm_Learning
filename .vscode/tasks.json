@@ -2,7 +2,6 @@
     "version": "2.0.0",
     "tasks": [
         {
-<<<<<<< HEAD
             "label": "C/C++: Compile",
             "type": "shell",
             "command": "C:\\MinGW\\bin\\g++.EXE",
@@ -21,63 +20,11 @@
             "type": "shell",
             "command": "${fileDirname}\\output\\${fileBasenameNoExtension}.exe",
             "dependsOn": ["C/C++: Compile"],
-=======
-            "label": "C++ Build",
-            "type": "shell",
-            "command": "E:\\C_envs\\mingw64_c++17\\bin\\g++.exe",
-            "args": [
-                "-std=c++17",
-                "-fdiagnostics-color=always",
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}\\output\\${fileBasenameNoExtension}.exe",
-                "-I",
-                "E:\\C_envs\\mingw64_c++17\\lib\\gcc\\x86_64-w64-mingw32\\15.2.0\\include\\c++",
-                "-I",
-                "E:\\C_envs\\mingw64_c++17\\lib\\gcc\\x86_64-w64-mingw32\\15.2.0\\include\\c++\\x86_64-w64-mingw32",
-                "-I",
-                "E:\\C_envs\\mingw64_c++17\\x86_64-w64-mingw32\\include"
-            ],
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": "build",
-            "options": {
-                "cwd": "${workspaceFolder}"
-            }
-        },
-        {
-            "type": "cppbuild",
-            "label": "C/C++: g++.exe 生成活动文件",
-            "command": "E:\\C_envs\\mingw64_c++17\\bin\\g++.exe",
-            "args": [
-                "-fdiagnostics-color=always",
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "-std=c++17"
-            ],
-            "options": {
-                "cwd": "E:\\C_envs\\mingw64_c++17\\bin"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
->>>>>>> ca6b72937a6b64ebd5aed22068c758a6e9f34b60
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-<<<<<<< HEAD
             "problemMatcher": []
         }
     ]
 }
-=======
-            "detail": "调试器生成的任务。"
-        }
-    ]
-}
->>>>>>> ca6b72937a6b64ebd5aed22068c758a6e9f34b60
