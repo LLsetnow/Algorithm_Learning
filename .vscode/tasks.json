@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "C/C++: Compile",
+            "type": "shell",
+            "command": "C:\\MinGW\\bin\\g++.EXE",
+            "args": [
+                "-Wall",
+                "-Wextra",
+                "-g3",
+                "${file}",
+                "-o",
+                "${fileDirname}\\output\\${fileBasenameNoExtension}.exe"
+            ],
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "C/C++: Run",
+            "type": "shell",
+            "command": "${fileDirname}\\output\\${fileBasenameNoExtension}.exe",
+            "dependsOn": ["C/C++: Compile"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}

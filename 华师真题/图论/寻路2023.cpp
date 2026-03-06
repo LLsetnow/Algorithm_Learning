@@ -1,14 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-typedef struct Node
+struct Node
 {
     int num;    // 结点号
     int w;      // 边长度
     int max;    // 路径上最大边长
     int sum;    // 路径综合
     int sum_sub;// 路径变0后的综合最短长度
-
 };
 
 int main(){
