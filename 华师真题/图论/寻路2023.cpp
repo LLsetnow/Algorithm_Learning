@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-typedef struct Node
+struct Node
 {
     int num;    // 结点号
     int w;      // 边长度
