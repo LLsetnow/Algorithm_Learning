@@ -1,0 +1,21 @@
+{
+
+    "env": {
+
+        "ANTHROPIC_AUTH_TOKEN": "sk-25377cbb170640688283816fb24b1b53",
+
+        "ANTHROPIC_BASE_URL": "https://api.deepseek.com/anthropic",
+
+        "API_TIMEOUT_MS": "3000000",
+
+        "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": 1,
+
+        "ANTHROPIC_DEFAULT_HAIKU_MODEL":"deepseek-chat",
+
+        "ANTHROPIC_DEFAULT_SONNET_MODEL":"deepseek-chat",
+
+        "ANTHROPIC_DEFAULT_OPUS_MODEL":"deepseek-chat"
+
+    }
+
+}

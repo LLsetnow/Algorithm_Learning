@@ -1,0 +1,34 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "compilerArgs": [
+                "-std=c++23"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "E:/MinGW/bin/gcc.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++23",
+            "intelliSenseMode": "windows-gcc-x64",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/**",
+                    "E:/C_envs/mingw64_c++17/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++",
+                    "E:/C_envs/mingw64_c++17/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/x86_64-w64-mingw32",
+                    "E:/C_envs/mingw64_c++17/lib/gcc/x86_64-w64-mingw32/15.2.0/include",
+                    "E:/C_envs/mingw64_c++17/x86_64-w64-mingw32/include"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            }
+        }
+    ],
+    "version": 4
+}
