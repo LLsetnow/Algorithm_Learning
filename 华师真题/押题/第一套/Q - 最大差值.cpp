@@ -24,8 +24,34 @@
 提示
 解释：最小元素为索引 1 的 1，其右侧最大元素为索引 4 的 6，差值 6-1=5 为最大。
 
+思路：
+    双指针
 */
 
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
+const int MAXN = 1e5 + 5;
+const int INF = 1e9 + 5;
+int a[MAXN];
+int main(){
+    int n; cin >> n;
+    for(int i = 1; i <= n; i++) cin >> a[i];
+
+    // int res = 0;
+    // // 暴力解 通过83%
+    // for(int i = 1; i <= n - 1; i++){
+    //     for(int j = i + 1; j <= n; j++){
+    //         res = max(res, a[j] - a[i]);
+    //     }
+    // }
+
+    // 从左往右遍历，保证新数索引大于老数
+    int minNum = INF;
+    int maxSub = 0;
+    for(int i = 1; i <= n; i++){
+        minNum = min(minNum, a[i]);
+        maxSub = max(maxSub, a[i] - minNum);
+    }
+    cout << maxSub;
+}
