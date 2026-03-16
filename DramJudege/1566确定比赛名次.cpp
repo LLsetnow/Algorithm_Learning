@@ -5,7 +5,6 @@ const int MAXN = 505;
 int G[MAXN][MAXN];  // G[i][j] = 1 表示 i 战胜 j
 int visited[MAXN];  // 0 表示未确定排名， 1 表示已确定排名
 int main(){
-
     int n, m;
     while(cin >> n >> m){
         memset(G, 0, sizeof(G));
