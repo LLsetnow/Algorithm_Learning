@@ -1,0 +1,17 @@
+# Settings
+settings.json
+cursor_settings.code-profile
+
+# Compiled files
+*.exe
+*.out
+*.o
+
+# Executables (no extension)
+[!_]*
+
+# VS Code
+.vscode/
+
+# Output directory
+output/
