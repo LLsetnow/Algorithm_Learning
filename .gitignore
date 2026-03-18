@@ -7,9 +7,6 @@ cursor_settings.code-profile
 *.out
 *.o
 
-# Executables (no extension)
-[!_]*
-
 # VS Code
 .vscode/
 
