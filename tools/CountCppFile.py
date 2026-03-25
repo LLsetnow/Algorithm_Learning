@@ -21,7 +21,7 @@ def count_cpp_files(target_dir):
 
 def main():
     # 目标目录，可根据需要修改
-    target_directory = "d:/github/Algorithm_Learning"
+    target_directory = "../"
 
     result = count_cpp_files(target_directory)
     print(f"目录 '{target_directory}' 及其子目录中的 .cpp 文件数量: {result}")
